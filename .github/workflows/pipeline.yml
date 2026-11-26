@@ -47,7 +47,6 @@ jobs:
         run: npm run test
       - name: run npm build
         run: npm run build
-        
-        if: ${{ github.event_name == 'push' }}
       - name: Trigger deployment
+        if: ${{ github.event_name == 'push' }}
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
